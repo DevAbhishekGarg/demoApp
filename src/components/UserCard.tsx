@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  SafeAreaView,
+} from 'react-native';
 import Icons from '../assets/icons';
 
 type UserCardProps = {
@@ -19,7 +26,7 @@ const UserCard: React.FC<UserCardProps> = ({
   onToggleFavorite,
 }) => {
   return (
-    <View style={styles.card}>
+    <SafeAreaView style={styles.card}>
       <Image source={{uri: user?.picture?.thumbnail}} style={styles.image} />
       <View style={styles.info}>
         <Text>{`${user?.name.first} ${user?.name?.last}`}</Text>
@@ -31,7 +38,7 @@ const UserCard: React.FC<UserCardProps> = ({
           style={styles.starImage}
         />
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -42,6 +49,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
     marginBottom: 10,
+    marginHorizontal: 10,
   },
   image: {
     width: 50,
